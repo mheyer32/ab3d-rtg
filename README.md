@@ -1,5 +1,5 @@
 # ab3d-rtg
-Alien Breed RTG
+Alien Breed 3D RTG
 
 Based on John Girvin's original AB3D-RTG source.
 
