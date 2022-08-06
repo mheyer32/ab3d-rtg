@@ -1325,8 +1325,8 @@ ts_hipen:		dc.w	0
 
 ts_pal:			dc.l	0
 
-tspal_8:		INCBIN	TitleNew.pal
-tspal_6:		INCBIN	TitleNewEHB.pal
+tspal_8:		INCBIN	titlenew.pal
+tspal_6:		INCBIN	titlenewehb.pal
 
 ts_name:		dc.b	'PROJ:AB3D/NewStuff/TitleNew.'
 ts_namenum:		dc.b	'8',0

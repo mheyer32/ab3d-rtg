@@ -310,4 +310,4 @@ FLOOROPTS:		dc.b	'  GOURAUD   '
 				dc.b	'PLAIN SHADED'
 				dc.b	'    NONE    '
 
-PAUSEFONT:		INCBIN	PAUSEFONT
+PAUSEFONT:		INCBIN	pausefont

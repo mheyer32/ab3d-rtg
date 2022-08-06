@@ -789,7 +789,7 @@ WAD_PTR:		dc.l	0
 PTR_PTR:		dc.l	0
 
 				ds.w	100
-objintocop:		INCBIN	"XTOCOPX"
+objintocop:		INCBIN	"xtocopx"
 				ds.w	100
 
 	*********************************
@@ -2101,10 +2101,10 @@ Medi_des:		INCBIN	medipac.vec
 Exit_des:		INCBIN	exitsign.vec
 Crate_des:		INCBIN	crate.vec
 Terminal_des:	INCBIN	terminal.vec
-Blue_des:		INCBIN	BlueInd.vec
-Green_des:		INCBIN	GreenInd.vec
-Red_des:		INCBIN	RedInd.vec
-Yellow_des:		INCBIN	YellowInd.vec
+Blue_des:		INCBIN	blueind.vec
+Green_des:		INCBIN	greenind.vec
+Red_des:		INCBIN	redind.vec
+Yellow_des:		INCBIN	yellowind.vec
 Gas_des:		INCBIN	gaspipe.vec
 
 boxonscr:		ds.l	250*2
@@ -2170,9 +2170,9 @@ Objects:
 				dc.l	0,0,FLAMEMARINE_FRAMES,FLAMEMARINE_PAL
 
 ALIEN_WAD:
-; INCBIN "ALIEN2.wad"
+; INCBIN "alien2.wad"
 ALIEN_PTR:
-; INCBIN "ALIEN2.ptr"
+; INCBIN "alien2.ptr"
 ALIEN_FRAMES:
 ; walking=0-3
 				dc.w	0,0
@@ -2219,9 +2219,9 @@ ALIEN_FRAMES:
 ALIEN_PAL:		INCBIN	alien2.pal
 
 PICKUPS_WAD:
-; INCBIN "Pickups.wad"
+; INCBIN "pickups.wad"
 PICKUPS_PTR:
-; INCBIN "PICKUPS.ptr"
+; INCBIN "pickups.ptr"
 PICKUPS_FRAMES:
 ; medikit=0
 				dc.w	0,0
@@ -2274,7 +2274,7 @@ PICKUPS_FRAMES:
 				dc.w	(64*3+32)*4,32
 
 
-PICKUPS_PAL:	INCBIN	"PICKUPS.PAL"
+PICKUPS_PAL:	INCBIN	"pickups.pal"
 
 BIGBULLET_WAD:
 ; INCBIN "bigbullet.wad"
@@ -2329,9 +2329,9 @@ UGLYMONSTER_PAL:
 				INCBIN	"uglymonster.pal"
 
 FLYINGMONSTER_WAD:
-; INCBIN "FLYINGalien.wad"
+; INCBIN "flyingalien.wad"
 FLYINGMONSTER_PTR:
-; INCBIN "FLYINGalien.ptr"
+; INCBIN "flyingalien.ptr"
 FLYINGMONSTER_FRAMES:
 				dc.w	0,0
 				dc.w	64*4,0
@@ -2356,12 +2356,12 @@ FLYINGMONSTER_FRAMES:
 				dc.w	64*4*20,0
 
 FLYINGMONSTER_PAL:
-				INCBIN	"FLYINGalien.pal"
+				INCBIN	"flyingalien.pal"
 
 KEYS_WAD:
 ; INCBIN "keys.wad"
 KEYS_PTR:
-; INCBIN "KEYS.PTR"
+; INCBIN "keys.ptr"
 KEYS_FRAMES:	dc.w	0,0
 				dc.w	0,32
 				dc.w	32*4,0
@@ -2369,9 +2369,9 @@ KEYS_FRAMES:	dc.w	0,0
 KEYS_PAL:		INCBIN	"keys.pal"
 
 ROCKETS_WAD:
-; INCBIN "ROCKETS.wad"
+; INCBIN "rockets.wad"
 ROCKETS_PTR:
-; INCBIN "ROCKETS.ptr"
+; INCBIN "rockets.ptr"
 ROCKETS_FRAMES:
 ;rockets=0 to 3
 				dc.w	0,0
@@ -2392,21 +2392,21 @@ ROCKETS_FRAMES:
 				dc.w	(128+32)*4,32
 
 
-ROCKETS_PAL:	INCBIN	"ROCKETS.pal"
+ROCKETS_PAL:	INCBIN	"rockets.pal"
 
 BARREL_WAD:
-; INCBIN "BARREL.wad"
+; INCBIN "barrel.wad"
 BARREL_PTR:
-; INCBIN "BARREL.ptr"
+; INCBIN "barrel.ptr"
 BARREL_FRAMES:
 				dc.w	0,0
 
-BARREL_PAL:		INCBIN	"BARREL.pal"
+BARREL_PAL:		INCBIN	"barrel.pal"
 
 GUNS_WAD:
 ; INCBIN "guns.wad"
 GUNS_PTR:
-; INCBIN "GUNS.PTR"
+; INCBIN "guns.ptr"
 GUNS_FRAMES:	dc.w	96*4*20,0
 				dc.w	96*4*21,0
 				dc.w	96*4*22,0
@@ -2450,9 +2450,9 @@ GUNS_FRAMES:	dc.w	96*4*20,0
 GUNS_PAL:		INCBIN	"newgunsinhand.pal"
 
 MARINE_WAD:
-; INCBIN "newMarine.wad"
+; INCBIN "newmarine.wad"
 MARINE_PTR:
-; INCBIN "newMARINE.ptr"
+; INCBIN "newmarine.ptr"
 MARINE_FRAMES:
 				dc.w	0,0
 				dc.w	64*4,0
@@ -2521,9 +2521,9 @@ FLAMEMARINE_PAL:
 
 
 BIGALIEN_WAD:
-; INCBIN "BIGSCARYALIEN.wad"
+; INCBIN "bigscaryalien.wad"
 BIGALIEN_PTR:
-; INCBIN "BIGSCARYALIEN.ptr"
+; INCBIN "bigscaryalien.ptr"
 BIGALIEN_FRAMES:
 ; walking=0-3
 				dc.w	0,0
@@ -2531,11 +2531,11 @@ BIGALIEN_FRAMES:
 				dc.w	128*4*2,0
 				dc.w	128*4*3,0
 BIGALIEN_PAL:
-				INCBIN	"BIGSCARYALIEN.pal"
+				INCBIN	"bigscaryalien.pal"
 
 LAMPS_FRAMES:
 				dc.w	0,0
-LAMPS_PAL:		INCBIN	"LAMPS.pal"
+LAMPS_PAL:		INCBIN	"lamps.pal"
 
 WORM_FRAMES:	dc.w	0,0
 				dc.w	90*4,0
@@ -2617,10 +2617,10 @@ TREE_PAL:		INCBIN	"tree.pal"
 
 				even
 ObAdds:
-; INCBIN "ALIEN1.ptr"
+; INCBIN "alien1.ptr"
 objpal:
-; INCBIN "ALIEN1.pal"
-TextureMaps:	INCBIN	"Texturemaps"
+; INCBIN "alien1.pal"
+TextureMaps:	INCBIN	"texturemaps"
 TexturePal:		INCBIN	"texturepalscaled"
 
 testval:		dc.l	0

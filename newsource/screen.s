@@ -327,7 +327,7 @@ InitGameScreen:
 				rts
 
 gs_l32tab:		dc.w	256,0
-gs_pal:			INCBIN	Border.pal
+gs_pal:			INCBIN	border.pal
 gs_pal_e:
 				dc.w	0
 				EVEN

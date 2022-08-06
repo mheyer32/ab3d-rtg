@@ -1,17 +1,17 @@
 
 gotgun:			dc.w	0
 
-				INCLUDE	NormalAlien.s
-				INCLUDE	FlyingScalyBall.s
-				INCLUDE	BigUglyAlien.s
-				INCLUDE	MutantMarine.s
-				INCLUDE	ToughMarine.s
+				INCLUDE	normalalien.s
+				INCLUDE	flyingscalyball.s
+				INCLUDE	biguglyalien.s
+				INCLUDE	mutantmarine.s
+				INCLUDE	toughmarine.s
 				INCLUDE	halfworm.s
 				INCLUDE	bigredthing.s
 				INCLUDE	tree.s
-				INCLUDE	EyeBall.s
-				INCLUDE	FlameMarine.s
-				INCLUDE	Robot.s
+				INCLUDE	eyeball.s
+				INCLUDE	flamemarine.s
+				INCLUDE	robot.s
 
 THISPLRxoff:	dc.w	0
 THISPLRzoff:	dc.w	0

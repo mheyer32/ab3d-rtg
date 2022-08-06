@@ -3,42 +3,42 @@
 				OPT		O+,W-,P=68020
 				OUTPUT	TMP:AB3D/AB3D/rtg
 
-				INCDIR	INCLUDE:
+				INCDIR	INCLUDE
 				INCDIR	TMP:AB3D/AB3D-RTG/NewSource
 				INCDIR	TMP:AB3D/AB3D-RTG/NewInclude
 				INCDIR	TMP:AB3D/AB3D-RTG/NewVectObj
 				INCDIR	TMP:AB3D/AB3D-RTG/NewStuff
 
-	;INCLUDE	INCLUDE:exec/funcdef.i
-				INCLUDE	INCLUDE:exec/exec.i
-				INCLUDE	INCLUDE:exec/exec_lib.i
-				INCLUDE	INCLUDE:dos/dos.i
-				INCLUDE	INCLUDE:dos/dos_lib.i
-				INCLUDE	INCLUDE:dos/dosextens.i
-				INCLUDE	INCLUDE:libraries/diskfont.i
-				INCLUDE	INCLUDE:libraries/diskfont_lib.i
-				INCLUDE	INCLUDE:libraries/lowlevel.i
-				INCLUDE	INCLUDE:libraries/lowlevel_lib.i
-				INCLUDE	INCLUDE:intuition/intuition.i
-				INCLUDE	INCLUDE:intuition/intuition_lib.i
-				INCLUDE	INCLUDE:graphics/gfxbase.i
-				INCLUDE	INCLUDE:graphics/graphics_lib.i
-				INCLUDE	INCLUDE:graphics/text.i
-				INCLUDE	INCLUDE:graphics/videocontrol.i
-				INCLUDE	INCLUDE:devices/input.i
-				INCLUDE	INCLUDE:devices/inputevent.i
-				INCLUDE	INCLUDE:devices/keyboard.i
-				INCLUDE	INCLUDE:resources/cia_lib.i
-				INCLUDE	INCLUDE:hardware/custom.i
-				INCLUDE	INCLUDE:hardware/cia.i
-				INCLUDE	INCLUDE:hardware/intbits.i
-				INCLUDE	INCLUDE:hardware/dmabits.i
-				INCLUDE	INCLUDE:rtgmaster/rtgmaster_lib.i
-				INCLUDE	INCLUDE:rtgmaster/rtgmaster.i
-				INCLUDE	INCLUDE:rtgmaster/rtgsublibs.i
-				INCLUDE	INCLUDE:rtgmaster/rtgc2p.i
+	;INCLUDE	exec/funcdef.i
+				INCLUDE	exec/exec.i
+				INCLUDE	exec/exec_lib.i
+				INCLUDE	dos/dos.i
+				INCLUDE	dos/dos_lib.i
+				INCLUDE	dos/dosextens.i
+				INCLUDE	libraries/diskfont.i
+				INCLUDE	libraries/diskfont_lib.i
+				INCLUDE	libraries/lowlevel.i
+				INCLUDE	libraries/lowlevel_lib.i
+				INCLUDE	intuition/intuition.i
+				INCLUDE	intuition/intuition_lib.i
+				INCLUDE	graphics/gfxbase.i
+				INCLUDE	graphics/graphics_lib.i
+				INCLUDE	graphics/text.i
+				INCLUDE	graphics/videocontrol.i
+				INCLUDE	devices/input.i
+				INCLUDE	devices/inputevent.i
+				INCLUDE	devices/keyboard.i
+				INCLUDE	resources/cia_lib.i
+				INCLUDE	hardware/custom.i
+				INCLUDE	hardware/cia.i
+				INCLUDE	hardware/intbits.i
+				INCLUDE	hardware/dmabits.i
+				INCLUDE	rtgmaster/rtgmaster_lib.i
+				INCLUDE	rtgmaster/rtgmaster.i
+				INCLUDE	rtgmaster/rtgsublibs.i
+				INCLUDE	rtgmaster/rtgc2p.i
 
-				INCLUDE	INCLUDE:rawkeys.i
+				INCLUDE	rawkeys.i
 				INCLUDE	macros.s
 				INCLUDE	defs.s
 
@@ -57,11 +57,11 @@ CD32VER:		equ		0
 
 ;------------------------------------------------------------------------------
 
-				INCLUDE	NewStartup39.s
+				INCLUDE	newstartup39.s
 
 				CNOP	0,4
 				dc.b	"$VER: AB3D-SE ("
-				INCLUDE	ENV:BuildTime.s
+				INCLUDE	
 				dc.b	")"
 				dc.b	0
 				EVEN
@@ -101,7 +101,7 @@ Start:			;What	a						lovely main loop! My CSci lecturers would be so proud...
 				INCLUDE	tweentext.s
 				INCLUDE	loadlevel.s
 				INCLUDE	chunkyconvert.s
-				INCLUDE	kalms_CPU5BLIT0.s
+				INCLUDE	kalms_cpu5blit0.s
 				INCLUDE	sound.s
 
 ;--------------------------------------------------------------------------------
@@ -2698,7 +2698,7 @@ liftanim:		rts
 				INCLUDE	anims.s
 ******************************
 startpass:
-; INCLUDE "ab3:source/password_reloc.s"
+; INCLUDE "source/password_reloc.s"
 endpass:
 rotanimpt:		dc.w	0
 xradd:			dc.w	5
@@ -4632,9 +4632,9 @@ PLR1_Ducked:	dc.b	0
 PLR2_Ducked:	dc.b	0
 				EVEN
 
-				INCLUDE	PLR1CONTROL.s
-				INCLUDE	PLR2CONTROL.s
-				INCLUDE	FALL.s
+				INCLUDE	plr1control.s
+				INCLUDE	plr2control.s
+				INCLUDE	fall.s
 
 GOTTOSEND:		dc.w	0
 
@@ -6008,7 +6008,7 @@ test:			dc.l	0
 
 				EVEN
 ConstCols:
-; INCBIN "ConstCols"
+; INCBIN "constcols"
 				EVEN
 Smoothscalecols:
 ; INCBIN "smoothbumppalscaled"
@@ -6017,7 +6017,7 @@ SmoothTile:
 ; INCBIN "smoothbumptile"
 				EVEN
 Bumpscalecols:
-; INCBIN "Bumppalscaled"
+; INCBIN "bumppalscaled"
 				EVEN
 Bumptile:
 ; INCBIN "bumptile"
@@ -6304,8 +6304,8 @@ consttab:		INCBIN	constantfile
 
 *********************************
 
-; INCLUDE "ab3:source/loadmod.a"
-; INCLUDE "ab3:source/proplayer.a"
+; INCLUDE "source/loadmod.a"
+; INCLUDE "source/proplayer.a"
 
 
 darkentab:		INCBIN	darkenedcols
@@ -6907,75 +6907,75 @@ nullcop:		dc.w	$106,$c40
 				dc.w	$ffff,$fffe
 
 Scream:
-; INCBIN "ab3:sounds/Scream"
+; INCBIN "sounds/scream"
 ; ds.w 100
 EndScream:
 LowScream:
-; INCBIN "ab3:sounds/LowScream"
+; INCBIN "sounds/lowscream"
 ; ds.w 100
 EndLowScream:
 BaddieGun:
-; INCBIN "ab3:sounds/BaddieGun"
+; INCBIN "sounds/baddiegun"
 EndBaddieGun:
 bass:
-; INCBIN "ab3:sounds/backbass+drum"
+; INCBIN "sounds/backbass+drum"
 bassend:
 Shoot:
-; INCBIN "ab3:sounds/fire!"
+; INCBIN "sounds/fire!"
 EndShoot:
 Munch:
-; INCBIN "ab3:sounds/munch"
+; INCBIN "sounds/munch"
 EndMunch:
 PooGun:
-; INCBIN "ab3:sounds/shoot.dm"
+; INCBIN "sounds/shoot.dm"
 EndPooGun:
 Collect:
-; INCBIN "ab3:sounds/collect"
+; INCBIN "sounds/collect"
 EndCollect:
 DoorNoise:
-; INCBIN "ab3:sounds/newdoor"
+; INCBIN "sounds/newdoor"
 EndDoorNoise:
 Stomp:
-; INCBIN "ab3:sounds/footstep3"
+; INCBIN "sounds/footstep3"
 EndStomp:
 SwitchNoise:
-; INCBIN "ab3:sounds/switch"
+; INCBIN "sounds/switch"
 EndSwitch:
 Reload:
-; INCBIN "ab3:sounds/switch1.SFX"
+; INCBIN "sounds/switch1.sfx"
 EndReload:
 NoAmmo:
-; INCBIN "ab3:sounds/noammo"
+; INCBIN "sounds/noammo"
 EndNoAmmo:
 Splotch:
-; INCBIN "ab3:sounds/splotch"
+; INCBIN "sounds/splotch"
 EndSplotch:
 SplatPop:
-; INCBIN "ab3:sounds/splatpop"
+; INCBIN "sounds/splatpop"
 EndSplatPop:
 Boom:
-; INCBIN "ab3:sounds/boom"
+; INCBIN "sounds/boom"
 EndBoom:
 Hiss:
-; INCBIN "ab3:sounds/newhiss"
+; INCBIN "sounds/newhiss"
 EndHiss:
 Howl1:
-; INCBIN "ab3:sounds/howl1"
+; INCBIN "sounds/howl1"
 EndHowl1:
 Howl2:
-; INCBIN "ab3:sounds/howl2"
+; INCBIN "sounds/howl2"
 EndHowl2:
 Pant:
-; INCBIN "ab3:sounds/pant"
+; INCBIN "sounds/pant"
 EndPant:
 Whoosh:
-; INCBIN "ab3:sounds/whoosh"
+; INCBIN "sounds/whoosh"
 EndWhoosh:
 ROAR:
-; INCBIN "ab3:sounds/bigscream"
+; INCBIN "sounds/bigscream"
 EndROAR
 whoosh:
-; INCBIN "ab3:sounds/flame"
+; INCBIN "sounds/flame"
 Endwhoosh:		SECTION	music,code_c
 
 UseAllChannels:
@@ -7458,9 +7458,9 @@ testchip:		dc.w	0
 ;/* End of File */
 mt_data:		dc.l	0
 tstchip:		dc.l	0
-				INCLUDE	SERIAL_NIGHTMARE.s
+				INCLUDE	serial_nightmare.s
 
 ingame:
-; INCBIN "ab3:includes/ingame"
+; INCBIN "includes/ingame"
 gameover:		INCBIN	gameover
 welldone:		INCBIN	welldone

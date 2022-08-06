@@ -96,4 +96,4 @@ LevelClipsPtr:	dc.l	0
 ; incbin "tstlev.clips"
 
 ControlPts:
-; incbin "ab3:includes/newlev.map"
+; incbin "includes/newlev.map"

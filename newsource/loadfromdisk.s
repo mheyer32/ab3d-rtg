@@ -292,7 +292,7 @@ RELEASESAMPMEM:
 
 ;--------------------------------------------------------------------------
 
-unLHA:			INCBIN	Decomp4.raw
+unLHA:			INCBIN	decomp4.raw
 
 ;--------------------------------------------------------------------------
 
@@ -418,10 +418,10 @@ HALFWORMPAINNAME: dc.b	'AB3D2:sounds/HALFWORMPAIN',0
 
 ;--------------------------------------------------------------------------
 
-wad1n:			dc.b	'AB3D1:includes/ALIEN2.wad',0
-ptr1n:			dc.b	'AB3D1:includes/ALIEN2.ptr',0
-wad2n:			dc.b	'AB3D1:includes/PICKUPS.wad',0
-ptr2n:			dc.b	'AB3D1:includes/PICKUPS.ptr',0
+wad1n:			dc.b	'AB3D1:includes/alien2.wad',0
+ptr1n:			dc.b	'AB3D1:includes/alien2.ptr',0
+wad2n:			dc.b	'AB3D1:includes/pickups.wad',0
+ptr2n:			dc.b	'AB3D1:includes/pickups.ptr',0
 ;wad3n:       	dc.b         'AB3D1:includes/uglymonster.wad',0
 ;ptr3n:       	dc.b         'AB3D1:includes/uglymonster.ptr',0
 wad4n:			dc.b	'AB3D1:includes/flyingalien.wad',0

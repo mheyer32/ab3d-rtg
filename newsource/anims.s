@@ -933,7 +933,7 @@ rotcount:		dc.w	0
 
 shotvels:		ds.l	20
 
-				INCLUDE	"PLAYERSHOOT.s"
+				INCLUDE	"playershoot.s"
 
 PLR1_GunFrame:
 				dc.w	0
@@ -1134,7 +1134,7 @@ notdoneflame:
 
 				rts
 
-; include "ab3:source/AI.s"
+; include "source/ai.s"
 
 ItsABarrel:		clr.b	worry(a0)
 				move.w	12(a0),GraphicRoom(a0)
