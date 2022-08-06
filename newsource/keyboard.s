@@ -7,7 +7,7 @@ Add_IHandler:
 	;Returns 0 if failed
 
 				tst.b	IH_handok				;Skip if already installed
-				bne		.aih_installed
+				bne.w	.aih_installed
 
 				SAVEREGS
 

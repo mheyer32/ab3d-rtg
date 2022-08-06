@@ -9,7 +9,7 @@ CHEESEY ?= 0
 
 #-DCD32VER
 
-AFLAGS = -Fhunk -phxass -m68060 -linedebug -align -L listing.txt -DCHEESEY=${CHEESEY} -Dmnu_nocode=1
+AFLAGS = -Fhunk -m68060 -linedebug -align -L listing.txt 
 AFLAGS += -I../ \
 		  -I$(PREFIX)/m68k-amigaos/ndk-include \
 		  -I../newinclude \
@@ -17,7 +17,7 @@ AFLAGS += -I../ \
 		  -I../newvectobj \
 		  -I../rtgmaster/includes/asm
 
-LFLAGS = -b amigahunk -sd -sc -l amiga -L $(PREFIX)m68k-amigaos/ndk/lib/libs
+LFLAGS = -b amigahunk -sd -sc 
 
 all: main
 

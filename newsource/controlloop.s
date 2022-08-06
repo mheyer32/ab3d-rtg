@@ -404,7 +404,7 @@ EnterPassword:
 
 				move.l	Msg_Code,d2				;d2=keycode pressed
 
-				cmp.w	#RAWKEY_DEL,d2			;Delete pressed?
+				cmp.w	#KEY_DEL,d2				;Delete pressed?
 				bne.s	.pw_notdelete
 				tst.w	d3
 				beq.s	.pw_notdelete
@@ -416,9 +416,9 @@ EnterPassword:
 				bra.s	.pw_enterloop
 
 .pw_notdelete:
-				cmp.w	#RAWKEY_RETURN,d2		;Abort if RETURN or ESC pressed
+				cmp.w	#KEY_RETURN,d2			;Abort if RETURN or ESC pressed
 				beq.s	.pw_abort
-				cmp.w	#RAWKEY_ESC,d2
+				cmp.w	#KEY_ESC,d2
 				beq.s	.pw_abort
 
 				move.b	1(a1,d2.w*4),d2			;Convert keycode to ASCII
@@ -1020,9 +1020,9 @@ HandleMenu:		;Handle	with					selecting menu options from current menu
 				jsr		WaitIntuiKeyMsg			;Wait for intuition keypress message
 				move.l	Msg_Code,d0				;d0=keycode pressed
 
-				cmp.w	#RAWKEY_SPACE,d0		;Skip if fire/SPACE/RETURN pressed
+				cmp.w	#KEY_SPACE,d0			;Skip if fire/SPACE/RETURN pressed
 				beq.s	.hm_selected
-				cmp.w	#RAWKEY_RETURN,d0
+				cmp.w	#KEY_RETURN,d0
 				beq.s	.hm_selected
 				cmp.w	#RAWKEY_PORT1_BUTTON_BLUE,d0
 				blt.s	.hm_notselected
@@ -1034,7 +1034,7 @@ HandleMenu:		;Handle	with					selecting menu options from current menu
 
 				cmp.w	#RAWKEY_PORT1_JOY_UP,d0	;Up pressed?
 				beq.s	.hm_moveup
-				cmp.w	#RAWKEY_CURSU,d0
+				cmp.w	#KEY_UP,d0
 				bne.s	.hm_testdown
 
 .hm_moveup:		subq.w	#1,d7					;Move to prev option
@@ -1045,7 +1045,7 @@ HandleMenu:		;Handle	with					selecting menu options from current menu
 .hm_testdown:
 				cmp.w	#RAWKEY_PORT1_JOY_DOWN,d0 ;Down pressed?
 				beq.s	.hm_movedown
-				cmp.w	#RAWKEY_CURSD,d0
+				cmp.w	#KEY_DOWN,d0
 				bne.s	.hm_menuloop
 
 .hm_movedown:
@@ -1328,7 +1328,7 @@ ts_pal:			dc.l	0
 tspal_8:		INCBIN	titlenew.pal
 tspal_6:		INCBIN	titlenewehb.pal
 
-ts_name:		dc.b	'PROJ:AB3D/NewStuff/TitleNew.'
+ts_name:		dc.b	'AB3D1:NewStuff/TitleNew.'
 ts_namenum:		dc.b	'8',0
 				EVEN
 
@@ -1339,18 +1339,18 @@ NASTY:			dc.w	0
 SSTACK:			dc.l	0
 
 CONTROLBUFFER:
-turn_left_key:	dc.b	RAWKEY_CURSL
-turn_right_key:	dc.b	RAWKEY_CURSR
-forward_key:	dc.b	RAWKEY_CURSU
-backward_key:	dc.b	RAWKEY_CURSD
-fire_key:		dc.b	RAWKEY_CTRL
-operate_key:	dc.b	RAWKEY_SPACE
-run_key:		dc.b	RAWKEY_LSHIFT
-force_sidestep_key: dc.b RAWKEY_LALT
-sidestep_left_key: dc.b	RAWKEY_Z
-sidestep_right_key: dc.b RAWKEY_X
-duck_key:		dc.b	RAWKEY_D
-look_behind_key: dc.b	RAWKEY_L
+turn_left_key:	dc.b	KEY_LEFT
+turn_right_key:	dc.b	KEY_RIGHT
+forward_key:	dc.b	KEY_UP
+backward_key:	dc.b	KEY_DOWN
+fire_key:		dc.b	KEY_CTRL
+operate_key:	dc.b	KEY_SPACE
+run_key:		dc.b	KEY_LSHIFT
+force_sidestep_key: dc.b KEY_LALT
+sidestep_left_key: dc.b	KEY_Z
+sidestep_right_key: dc.b KEY_X
+duck_key:		dc.b	KEY_D
+look_behind_key: dc.b	KEY_L
 
 templeftkey:	dc.b	0
 temprightkey:	dc.b	0
@@ -1362,10 +1362,10 @@ tempsrkey:		dc.b	0
 ;----------------------------------------------------------------------------
 
 				CNOP	0,4
-KVALTOASC:		dc.b	" `  "," 1  "," 2  "," 3  "
+KVALTOASC:		dc.b	' `  ',' 1  ',' 2  ',' 3  '
 				dc.b	" 4  "," 5  "," 6  "," 7  "
 				dc.b	" 8  "," 9  "
-				dc.b	" 0  "," -  "," +  "," \  "
+				dc.b	" 0  "," -  "," +  "," \\  "
 				dc.b	'    ','    '," Q  "," W  "
 				dc.b	" E  "," R  "
 				dc.b	" T  "," Y  "," U  "," I  "

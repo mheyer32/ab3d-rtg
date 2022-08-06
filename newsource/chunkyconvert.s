@@ -11,7 +11,7 @@ GetPensForCopCol:
 				move.l	#256,d0					;First, alloc a ColorMap to hold the palette
 				GRAFCALL GetColorMap
 				tst.l	d0
-				beq		.mc_nocmap
+				beq.w	.mc_nocmap
 				move.l	d0,-(a7)
 
 				move.l	d0,a0					;Fill in ColorMap with game palette

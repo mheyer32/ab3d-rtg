@@ -168,7 +168,7 @@ notintop:		adda.w	#ToZonePts,a0
 				add.l	PLR1_Roompt,d1
 				move.l	d1,PLR1_PointsToRotatePtr
 				tst.w	(a0)+
-				sne.s	DRAWNGRAPHTOP
+				sne		DRAWNGRAPHTOP
 				beq.s	nobackgraphics
 				cmp.b	#'s',mors
 				beq.s	nobackgraphics

@@ -61,7 +61,7 @@ RenderTweenText:
 
 				moveq	#80,d2					;d2=max length of string
 
-				LIBBASE	graphics
+				LibBase	graphics
 
 				tst.b	d1						;Do we center this line?
 				beq.s	.dl_notcentered			;Skip if not
@@ -133,7 +133,7 @@ dtt_fade:		;Fade	in/out					the tweentext
 
 				move.l	Scr_VP,a0				;Screen viewport
 				lea		dtt_pal(pc),a1			;Palette array
-				LIBBASE	graphics
+				LibBase	graphics
 
 .fd_loop:		movem.l	d0-1/a0-1,-(a7)
 				CALLA6	WaitTOF

@@ -118,32 +118,32 @@ EXECCALL:		MACRO
 				ENDM
 
 INTCALL:		MACRO
-				LIBBASE	intuition
+				LibBase	intuition
 				CALLA6	\1
 				ENDM
 
 GRAFCALL:		MACRO
-				LIBBASE	graphics
+				LibBase	graphics
 				CALLA6	\1
 				ENDM
 
 DOSCALL:		MACRO
-				LIBBASE	dos
+				LibBase	dos
 				CALLA6	\1
 				ENDM
 
 LOWCALL:		MACRO
-				LIBBASE	lowlevel
+				LibBase	lowlevel
 				CALLA6	\1
 				ENDM
 
 DSKFCALL:		MACRO
-				LIBBASE	diskfont
+				LibBase	diskfont
 				CALLA6	\1
 				ENDM
 
 RTGCALL:		MACRO
-				LIBBASE	rtgmaster
+				LibBase	rtgmaster
 				CALLA6	\1
 				ENDM
 

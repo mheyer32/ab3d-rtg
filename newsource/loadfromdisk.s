@@ -35,7 +35,7 @@ LoadPanel:		;Load	the						status panel display gfx
 				GETREGS
 				rts
 
-.lb_filenam:	dc.b	"PROJ:AB3D/NewStuff/Border.raw",0
+.lb_filenam:	dc.b	"AB3D1:NewStuff/Border.raw",0
 				EVEN
 
 ;--------------------------------------------------------------------------

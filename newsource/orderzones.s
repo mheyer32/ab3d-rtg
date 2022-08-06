@@ -141,7 +141,7 @@ buggergerger:
 indrawlist		addq	#1,d7
 
 				btst	d7,d6
-				bne.s	wealreadyknow
+				bne.w	wealreadyknow
 
 
 ; Here is a room in the draw list.
@@ -182,7 +182,7 @@ mustdo:
 				move.l	#OrderTab,a3
 
 				move.w	(a4),d0
-				blt.s	notcloser
+				blt.w	notcloser
 
 checkcloser:	cmp.w	2(a3,d0.w*8),d1
 				beq.s	iscloser

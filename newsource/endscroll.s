@@ -204,10 +204,10 @@ dosome:			movem.l	d0/d1,-(a7)
 				move.w	d1,BOTLET
 
 				sub.w	#1,scrolldownaline
-				bgt.s	.noline
+				bgt.w	.noline
 
 				sub.w	#1,LINESLEFTTOSCROLL
-				bgt.s	.NONOTHERLINE
+				bgt.w	.NONOTHERLINE
 				move.w	#16,LINESLEFTTOSCROLL
 				st		DONEXTLINE
 .NONOTHERLINE

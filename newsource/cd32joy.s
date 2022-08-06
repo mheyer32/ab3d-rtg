@@ -9,10 +9,10 @@ _ReadJoy1:		move.l	a6,-(a7)
 	; bits in d1
 
 				cmp.l	#JP_TYPE_NOTAVAIL,d1
-				beq.b	.Empty
+				beq		.Empty
 
 				cmp.l	#JP_TYPE_GAMECTLR,d1
-				beq.b	.GameCtrl
+				beq		.GameCtrl
 
 				cmp.l	#JP_TYPE_MOUSE,d1
 				beq		.Mouse
@@ -74,9 +74,9 @@ _ReadJoy1:		move.l	a6,-(a7)
 				move.b	duck_key,d5
 				move.l	d1,d0
 				and.l	#JPF_BUTTON_BLUE,d0
-				beq.s	.notduckbutpre
+				beq		.notduckbutpre
 				tst.b	.ducklast
-				bne.s	.notduckbut
+				bne		.notduckbut
 				st		(a5,d5.w)
 				st		.ducklast
 				bra.s	.notduckbut
@@ -96,13 +96,13 @@ _ReadJoy1:		move.l	a6,-(a7)
 
 				move.l	d1,d0
 				and.l	#JPF_BUTTON_REVERSE,d0
-				beq.s	.nonextweappre
+				beq		.nonextweappre
 
 				tst.b	PLR1_GunFrame
-				bne.s	.nonextweappre
+				bne		.nonextweappre
 
 				tst.b	.heldlast
-				bne.s	.nonextweap
+				bne		.nonextweap
 				st		.heldlast
 				moveq	#0,d0
 				moveq	#0,d2
@@ -184,10 +184,10 @@ _ReadJoy2		move.l	a6,-(a7)
 	; bits in d1
 
 				cmp.l	#JP_TYPE_NOTAVAIL,d1
-				beq.b	.Empty
+				beq		.Empty
 
 				cmp.l	#JP_TYPE_GAMECTLR,d1
-				beq.b	.GameCtrl
+				beq		.GameCtrl
 
 				cmp.l	#JP_TYPE_MOUSE,d1
 				beq		.Mouse
@@ -249,9 +249,9 @@ _ReadJoy2		move.l	a6,-(a7)
 				move.b	duck_key,d5
 				move.l	d1,d0
 				and.l	#JPF_BUTTON_BLUE,d0
-				beq.s	.notduckbutpre
+				beq		.notduckbutpre
 				tst.b	.ducklast
-				bne.s	.notduckbut
+				bne		.notduckbut
 				st		.ducklast
 				st		(a5,d5.w)
 				bra		.notduckbut
@@ -269,13 +269,13 @@ _ReadJoy2		move.l	a6,-(a7)
 
 				move.l	d1,d0
 				and.l	#JPF_BUTTON_REVERSE,d0
-				beq.s	.nonextweappre
+				beq		.nonextweappre
 
 				tst.b	PLR2_GunFrame
-				bne.s	.nonextweappre
+				bne		.nonextweappre
 
 				tst.b	.heldlast
-				bne.s	.nonextweap
+				bne		.nonextweap
 				st		.heldlast
 				moveq	#0,d0
 				move.b	PLR2_GunSelected,d2

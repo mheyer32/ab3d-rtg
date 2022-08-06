@@ -1,7 +1,5 @@
-
-				SECTION	main,CODE
+*				SECTION	main,CODE
 				OPT		O+,W-,P=68020
-				OUTPUT	TMP:AB3D/AB3D/rtg
 
 				INCDIR	INCLUDE
 				INCDIR	TMP:AB3D/AB3D-RTG/NewSource
@@ -9,26 +7,26 @@
 				INCDIR	TMP:AB3D/AB3D-RTG/NewVectObj
 				INCDIR	TMP:AB3D/AB3D-RTG/NewStuff
 
-	;INCLUDE	exec/funcdef.i
+				INCLUDE	funcdef.i
 				INCLUDE	exec/exec.i
-				INCLUDE	exec/exec_lib.i
+				INCLUDE	lvo/exec_lib.i
 				INCLUDE	dos/dos.i
-				INCLUDE	dos/dos_lib.i
+				INCLUDE	lvo/dos_lib.i
 				INCLUDE	dos/dosextens.i
 				INCLUDE	libraries/diskfont.i
-				INCLUDE	libraries/diskfont_lib.i
+				INCLUDE	lvo/diskfont_lib.i
 				INCLUDE	libraries/lowlevel.i
-				INCLUDE	libraries/lowlevel_lib.i
+				INCLUDE	lvo/lowlevel_lib.i
 				INCLUDE	intuition/intuition.i
-				INCLUDE	intuition/intuition_lib.i
+				INCLUDE	lvo/intuition_lib.i
 				INCLUDE	graphics/gfxbase.i
-				INCLUDE	graphics/graphics_lib.i
+				INCLUDE	lvo/graphics_lib.i
 				INCLUDE	graphics/text.i
 				INCLUDE	graphics/videocontrol.i
 				INCLUDE	devices/input.i
 				INCLUDE	devices/inputevent.i
 				INCLUDE	devices/keyboard.i
-				INCLUDE	resources/cia_lib.i
+				INCLUDE	lvo/cia_lib.i
 				INCLUDE	hardware/custom.i
 				INCLUDE	hardware/cia.i
 				INCLUDE	hardware/intbits.i
@@ -57,24 +55,89 @@ CD32VER:		equ		0
 
 ;------------------------------------------------------------------------------
 
-				INCLUDE	newstartup39.s
+spr0ctl			equ		$142
+spr1ctl			equ		$14a
+spr2ctl			equ		$152
+spr3ctl			equ		$15a
+spr4ctl			equ		$162
+spr5ctl			equ		$16a
+spr6ctl			equ		$172
+spr7ctl			equ		$17a
+spr0pos			equ		$140
+spr1pos			equ		$148
+spr2pos			equ		$150
+spr3pos			equ		$158
+spr4pos			equ		$160
+spr5pos			equ		$168
+spr6pos			equ		$170
+spr7pos			equ		$178
+color00			equ		$180
+color01			equ		$182
+color02			equ		$184
+color03			equ		$186
+color04			equ		$188
+color05			equ		$18a
+color06			equ		$18c
+color07			equ		$18e
+color08			equ		$190
+color09			equ		$192
+color10			equ		$194
+color11			equ		$196
+color12			equ		$198
+color13			equ		$19a
+intreqrl		equ		$01f
+bpl1pth			equ		$e0
+bpl1ptl			equ		$e2
+bpl2pth			equ		$e4
+bpl2ptl			equ		$e6
+bpl3pth			equ		$e8
+bpl3ptl			equ		$ea
+bpl4pth			equ		$ec
+bpl4ptl			equ		$ee
+bpl5pth			equ		$f0
+bpl5ptl			equ		$f2
+bpl6pth			equ		$f4
+bpl6ptl			equ		$f6
+bpl7pth			equ		$f8
+bpl7ptl			equ		$fa
+bpl8pth			equ		$fc
+bpl8ptl			equ		$fe
+spr0pth			equ		$120
+spr0ptl			equ		$122
+spr1pth			equ		$124
+spr1ptl			equ		$126
+spr2pth			equ		$128
+spr2ptl			equ		$12a
+spr3pth			equ		$12c
+spr3ptl			equ		$12e
+spr4pth			equ		$130
+spr4ptl			equ		$132
+spr5pth			equ		$134
+spr5ptl			equ		$136
+spr6pth			equ		$138
+spr6ptl			equ		$13a
+spr7pth			equ		$13c
+spr7ptl			equ		$13e
+;------------------------------------------------------------------------------
+
+				INCLUDE	Startup.asm
 
 				CNOP	0,4
 				dc.b	"$VER: AB3D-SE ("
-				INCLUDE	
+;				INCLUDE	BuildTime		; FIXME: recreate some time
 				dc.b	")"
 				dc.b	0
 				EVEN
 
-Init:			TASKNAME "AB3D-SE"
+Init:			TaskName "AB3D-SE"
 
-				DEFLIB	dos,39					;Open the libs we need
-				DEFLIB	graphics,39
-				DEFLIB	intuition,39
-				DEFLIB	diskfont,39
-				DEFLIB	lowlevel,40
-				DEFLIB	rtgmaster,27
-				DEFEND	;ALWAYS					REQUIRED!!!
+				DefLib	dos,39					;Open the libs we need
+				DefLib	graphics,39
+				DefLib	intuition,39
+				DefLib	diskfont,39
+				DefLib	lowlevel,40
+				DefLib	rtgmaster,27
+				DefEnd	;ALWAYS					REQUIRED!!!
 
 				CNOP	0,4
 _SysBase:		dc.l	0
@@ -164,14 +227,14 @@ mainloop:		;Start	of						main game loop
 				bne.s	.nopause
 
 				lea		KeyMap,a5				;"P" pressed?
-				tst.b	RAWKEY_P(a5)
+				tst.b	KEY_P(a5)
 				beq.s	.nopause
 				clr.b	doanything
 
 .waitrel:		move.l	a5,-(a7)				;Wait for P to be released
 				GRAFCALL WaitTOF
 				move.l	(a7)+,a5
-				tst.b	RAWKEY_P(a5)
+				tst.b	KEY_P(a5)
 				bne.s	.waitrel
 
 				bsr		PauseOpts				;Do the pause options
@@ -276,7 +339,7 @@ okwat:			move.l	a0,waterpt
 *********************************************
 
 				move.l	#KeyMap,a5
-				tst.b	RAWKEY_HELP(a5)
+				tst.b	KEY_HELP(a5)
 				beq.s	.nocheat
 				move.w	#127,PLR1_energy
 				bsr		EnergyBar
@@ -1696,7 +1759,7 @@ polyloop:		move.w	(a0)+,d0
 				cmp.w	#4,d0
 				beq		itsanobject
 				cmp.w	#5,d0
-				beq.s	itsanarc
+				beq.w	itsanarc
 				cmp.w	#6,d0
 				beq		itsalightbeam
 				cmp.w	#7,d0
@@ -1704,7 +1767,7 @@ polyloop:		move.w	(a0)+,d0
 				cmp.w	#9,d0
 				ble		itsachunkyfloor
 				cmp.w	#11,d0
-				ble.s	itsabumpyfloor
+				ble.w	itsabumpyfloor
 				cmp.w	#12,d0
 				beq.s	itsbackdrop
 				cmp.w	#13,d0
@@ -1842,7 +1905,7 @@ nonegx2:		add.b	d0,d2
 
 				move.w	#$0,$dff034
 				btst	#2,$dff016
-				beq.s	noturn
+				beq.w	noturn
 
 				add.w	d0,oldx2
 				move.w	oldx2,d0
@@ -1895,7 +1958,7 @@ RotateLevelPts:
 ; move.w #$f00,$dff180
 
 pointrotlop:	move.w	(a0)+,d7
-				blt.s	outofpointrot
+				blt.w	outofpointrot
 
 				move.w	(a3,d7*4),d0
 				sub.w	d4,d0
@@ -2165,7 +2228,7 @@ somevis2:		cmp.w	#95,d1
 				ble.s	okrightend
 				move.w	#95,d1
 okrightend:		sub.w	d0,d1
-				blt.s	wrongbloodywayround
+				blt.w	wrongbloodywayround
 				move.l	#brightentab,a4
 				move.l	#objintocop,a1
 				lea		(a1,d0.w*2),a1
@@ -2221,7 +2284,7 @@ Expression:		dc.w	0
 
 PlaceFace:		move.w	FacesCounter,d0
 				subq	#1,d0
-				bgt.s	NoNewFace
+				bgt.w	NoNewFace
 
 				move.l	FacesPtr,a0
 
@@ -2449,7 +2512,7 @@ end:			clr.b	doanything
 				bne.s	.noback
 				jsr		mt_end
 .noback			tst.w	Energy
-				bgt.s	wevewon
+				bgt.w	wevewon
 
 				move.l	#gameover,mt_data
 				st		UseAllChannels
@@ -2545,12 +2608,12 @@ NEWsetlclip:	move.l	#OnScreen,a1
 .notignoreleft:
 
 				move.w	6(a2,d0*8),d3			; left z val
-				bgt.s	.leftclipinfront
+				bgt		.leftclipinfront
 				addq	#2,a0
 				rts
 
 				tst.w	6(a2,d0*8)
-				bgt.s	.leftnotoktoclip
+				bgt		.leftnotoktoclip
 .ignoreboth:
 ; move.l #0,(a6)
 ; move.l #96*65536,4(a6)
@@ -2566,7 +2629,7 @@ NEWsetlclip:	move.l	#OnScreen,a1
 				move.w	2(a3,d2.w*4),d2
 				move.w	(a1,d2.w*2),d2
 				cmp.w	d1,d2
-				bgt.s	.leftnotoktoclip
+				bgt		.leftnotoktoclip
 
 ; move.w d1,(a6)
 ; move.w d3,2(a6)
@@ -5139,7 +5202,7 @@ loop3:			move.l	(a0)+,d0
 				move.b	vol1right,d0
 				move.b	vol3right,d1
 				cmp.b	d1,d0
-				slt.s	swappedem
+				slt		swappedem
 				bge.s	fbig3
 
 				exg		a0,a1

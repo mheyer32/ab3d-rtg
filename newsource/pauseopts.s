@@ -98,7 +98,7 @@ CHANGEPOPTS:	bsr		CHECKUPDOWN
 
 
 				tst.b	d3
-				beq.s	nobotchange
+				beq.w	nobotchange
 
 				move.w	BOTPOPT,d0
 				addq	#1,d0
@@ -297,7 +297,8 @@ SOUNDOPTLINE:	dc.b	'            '
 				dc.b	'            '
 				dc.b	'FLOOR DETAIL'
 FLOOROPTLINE:	dc.b	'  GOURAUD   '
-				dc.b	'            '			dc.b         '            '8
+				dc.b	'            '
+				dc.b	'            '
 				dc.b	'            '
 
 SOUNDOPTS:		dc.b	'FOUR CH MONO'
